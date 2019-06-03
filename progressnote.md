@@ -21,7 +21,7 @@ _pair coding: Anna & Aleks_
 - [x] Add the balance  
 - [x] Enable top up functionality  
 - [x] Enforce maximum balance  
-- [ ] Deduct the money  
+- [x] Deduct the money  
 
 ### Add touch in/out functionality:
 - [ ] Add touch in/out support  

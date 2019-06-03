@@ -1,9 +1,9 @@
 class OysterCard
-  attr_reader :balance # the presence of attr_reader :balance allows rspec and others to see @balance
+  attr_reader :balance 
   attr_reader :state
   MAX_VALUE = 90
 
-  def initialize(balance=10, state="not_in_journey")
+  def initialize(balance=10, state="not in journey")
     @balance = balance
     @state = state
   end
@@ -15,5 +15,21 @@ class OysterCard
 
   def deduct(amount)
     @balance -= amount
+  end
+
+  def touch_in
+    raise "Card already #{@state}" if in_journey?
+    @state = "in journey"
+  end
+
+  def touch_out
+    if in_journey?
+      @state = "not in journey"
+    else raise "Card already #{@state}"
+      end
+  end
+
+  def in_journey?
+    @state == "in journey"
   end
 end
