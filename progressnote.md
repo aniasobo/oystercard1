@@ -11,7 +11,7 @@
 
 ### Set up the project:
 
-- [ ] Create a Gemfile
+- [x] Create a Gemfile
 - [ ] Create RSpec conventional files
 - [ ] Review debugging basics
 

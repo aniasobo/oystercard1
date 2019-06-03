@@ -7,5 +7,5 @@ source "https://rubygems.org" do
     gem 'simplecov'
     gem 'simplecov-console'
   end
-  ruby "2.6.0"
+  ruby "2.2.0"
 end
