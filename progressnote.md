@@ -18,7 +18,7 @@ _pair coding: Anna & Aleks_
 - [x] Review debugging basics
 
 ### Create a basic Oyster card:
-- [ ] Add the balance  
+- [x] Add the balance  
 - [ ] Enable top up functionality  
 - [ ] Enforce maximum balance  
 - [ ] Deduct the money  
@@ -106,4 +106,5 @@ bundle init
 - updating local versions of ruby and gems with rvm & bundler
 - Rspec config file - not generated automatically by rspec --init; purpose: ??
 - reading & interpreting the rspec stack trace
+- attribute readers and instance variables, and initialising new objects in a given state - and writing unit tests to verify it
 

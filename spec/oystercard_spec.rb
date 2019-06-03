@@ -7,4 +7,9 @@ describe OysterCard do
     oyster = OysterCard.new()
     expect(oyster).to have_attributes(:balance => 10)
   end
+  describe '#top_up' do
+    it 'can be topped up' do
+      expect(subject.top_up(10)).to eq (20)
+    end
+  end
 end
