@@ -1,5 +1,7 @@
 # Oyster Card challenge - Week 2
 ---
+_pair coding: Anna & Aleks_  
+
 ## Topics to cover:
 
 - [ ] I write code that is easy to change  
@@ -12,7 +14,7 @@
 ### Set up the project:
 
 - [x] Create a Gemfile
-- [ ] Create RSpec conventional files
+- [x] Create RSpec conventional files
 - [ ] Review debugging basics
 
 ### Create a basic Oyster card:
@@ -100,5 +102,7 @@ I need to have the correct fare calculated
 bundle init
 ```
 
-- 
+- we started off with manually adding gem files - then read up on doing it via bundler
+- updating local versions of ruby and gems with rvm & bundler
+- Rspec config file - not generated automatically by rspec --init; purpose: ??
 
