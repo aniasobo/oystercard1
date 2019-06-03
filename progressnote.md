@@ -94,4 +94,11 @@ I need to have the correct fare calculated
 
 ## Things learned:
 
+- creating Gemfile with:
+
+```
+bundle init
+```
+
+- 
 
