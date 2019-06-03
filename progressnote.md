@@ -24,7 +24,7 @@ _pair coding: Anna & Aleks_
 - [x] Deduct the money  
 
 ### Add touch in/out functionality:
-- [ ] Add touch in/out support  
+- [x] Add touch in/out support  
 - [ ] Checking mininum balance on touch in  
 - [ ] Charging for the journey  
 
