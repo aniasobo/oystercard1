@@ -15,6 +15,13 @@ describe OysterCard do
     num = 81
     expect { subject.top_up(num) }.to raise_error("Value #{num} to high. Cannot top-up to more than #{OysterCard::MAX_VALUE}")
     end
+  end
+  describe '#deduct' do
+    it 'deducts the fare from the balance and returns new balance' do
+      oyster = OysterCard.new(50)
+      new_balance = oyster.deduct(10)
+      expect(new_balance).to eq(40)
+    end
 
   end
 end

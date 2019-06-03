@@ -19,8 +19,8 @@ _pair coding: Anna & Aleks_
 
 ### Create a basic Oyster card:
 - [x] Add the balance  
-- [ ] Enable top up functionality  
-- [ ] Enforce maximum balance  
+- [x] Enable top up functionality  
+- [x] Enforce maximum balance  
 - [ ] Deduct the money  
 
 ### Add touch in/out functionality:
@@ -107,4 +107,5 @@ bundle init
 - Rspec config file - not generated automatically by rspec --init; purpose: ??
 - reading & interpreting the rspec stack trace
 - attribute readers and instance variables, and initialising new objects in a given state - and writing unit tests to verify it
+- using constants in Rspec: accessing by ClassName::CONSTANT_NAME (can be used in string interpolation)
 

@@ -10,4 +10,8 @@ class OysterCard
     raise "Value #{num} to high. Cannot top-up to more than #{MAX_VALUE}" if @balance + num > MAX_VALUE
     @balance += num
   end
+
+  def deduct(amount)
+    @balance -= amount
+  end
 end
