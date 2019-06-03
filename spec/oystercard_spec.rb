@@ -11,5 +11,10 @@ describe OysterCard do
     it 'can be topped up' do
       expect(subject.top_up(10)).to eq (20)
     end
+    it 'can be toped up max 90 pounds'do
+    num = 81
+    expect { subject.top_up(num) }.to raise_error("Value #{num} to high. Cannot top-up to more than #{OysterCard::MAX_VALUE}")
+    end
+
   end
 end
