@@ -15,7 +15,7 @@ _pair coding: Anna & Aleks_
 
 - [x] Create a Gemfile
 - [x] Create RSpec conventional files
-- [ ] Review debugging basics
+- [x] Review debugging basics
 
 ### Create a basic Oyster card:
 - [ ] Add the balance  
@@ -105,4 +105,5 @@ bundle init
 - we started off with manually adding gem files - then read up on doing it via bundler
 - updating local versions of ruby and gems with rvm & bundler
 - Rspec config file - not generated automatically by rspec --init; purpose: ??
+- reading & interpreting the rspec stack trace
 
