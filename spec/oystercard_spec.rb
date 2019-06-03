@@ -3,10 +3,16 @@ describe OysterCard do
   it 'confirms its existence'do
     expect(subject).to be
   end
-  it 'is initilized with a default balance'do
+  it 'is initilized with a default balance and state not_in_journey'do
     oyster = OysterCard.new()
-    expect(oyster).to have_attributes(:balance => 10)
+    expect(oyster).to have_attributes(:balance => 10, :state => "not_in_journey")
   end
+
+  it "returns false if state not in not_in_journey" do
+    oyster = OysterCard.new
+    expect(oyster:in_journey?).to be (false)
+  end 
+
   describe '#top_up' do
     it 'can be topped up' do
       expect(subject.top_up(10)).to eq (20)
@@ -22,6 +28,5 @@ describe OysterCard do
       new_balance = oyster.deduct(10)
       expect(new_balance).to eq(40)
     end
-
   end
 end
