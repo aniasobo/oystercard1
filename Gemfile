@@ -1,5 +1,4 @@
-source "https://rubygems.org" do
-
+source 'https://rubygems.org' do
   gem 'rake'
   gem 'rubocop', '0.60.0'
   group :development, :test do
@@ -7,5 +6,5 @@ source "https://rubygems.org" do
     gem 'simplecov'
     gem 'simplecov-console'
   end
-  ruby "2.6.0"
+  ruby '2.6.0'
 end
