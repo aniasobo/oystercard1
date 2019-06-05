@@ -27,12 +27,19 @@ class OysterCard
     @state = 'in journey'
   end
 
+  def display_balance
+    @balance
+  end
+
   def touch_out
     raise "Card already #{@state}" unless in_journey?
 
+    self.deduct(MINIMIM_FARE)
     @state = 'not in journey'
   end
 
+  private
+  
   def in_journey?
     @state == 'in journey'
   end

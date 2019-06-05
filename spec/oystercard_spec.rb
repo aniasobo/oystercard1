@@ -57,6 +57,11 @@ describe OysterCard do
       expect { @oyster.touch_in }.to raise_error('Not enough for a fare.')
     end
 
+    it 'deducts minimum fare on touch out' do
+      @oyster.deduct(1)
+      expect(@oyster.display_balance).to eq 0
+    end
+
     it 'raises error if trying to touch in with insufficient funds' do
       allow(@oyster).to receive(:enough_money?).and_return(false)
       expect { @oyster.touch_in }.to raise_error('Not enough for a fare.')
