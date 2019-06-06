@@ -26,7 +26,7 @@ _pair coding: Anna & Aleks_
 ### Add touch in/out functionality:
 - [x] Add touch in/out support  
 - [x] Checking mininum balance on touch in  
-- [ ] Charging for the journey  
+- [x] Charging for the journey  
 
 ### Record the journeys
 - [ ] Saving the entry station  

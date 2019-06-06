@@ -2,17 +2,10 @@ require 'oystercard'
 
 describe OysterCard do
 
-  it 'is initilized with a default balance and state not_in_journey' do
+  it 'is initilized with a default balance and nil station' do
     oyster = OysterCard.new
-    expect(oyster).to have_attributes(:balance => 10, :state => 'not in journey')
+    expect(oyster).to have_attributes(:balance => 10, :station => nil)
   end
-
-  it 'returns false if state not_in_journey' do
-    state = double('state')
-    allow(state).to receive(:in_journey?).and_return(false)
-    oyster = OysterCard.new(state: state)
-    expect(oyster.in_journey?).to be(false)
-  end 
 
   describe '#top_up' do
 
@@ -34,37 +27,48 @@ describe OysterCard do
   end
 
   describe '#touch_in and #touch_out' do
+    context 'brand new oyster card' do
+    let(:oyster) { OysterCard.new }
+
+    it 'can be assigned a station on touch in' do
+      expect(oyster.touch_in('Camden')).to eq 'Camden'
+    end
+  end
+
+    context 'testing station assignment' do
+      before(:each) do
+        @oyster = OysterCard.new
+        @oyster.touch_in('Camden') 
+      end
+
+    it 'changes statation to nil with touch_out' do
+      expect(@oyster.touch_out).to be_nil
+    end
+
+    it 'raises error if touched in while in journey' do
+      expect { @oyster.touch_in('Euston') }.to raise_error('Card already in use')
+    end
+  end
+
+  context 'tests minimum fare' do
     before(:each) do
       @oyster = OysterCard.new(1)
     end
 
-    it 'changes state from in journey to not in journey with touch_out' do
-      @oyster.touch_in
-      expect(@oyster.touch_out).to eq('not in journey')
-    end
-
-    it 'raises error if touched in while in journey' do
-      @oyster.touch_in
-      expect { @oyster.touch_in }.to raise_error('Card already in journey')
+    it 'checks if the card has enough balance for a fare' do
+      @oyster.deduct(1)
+      expect { @oyster.touch_in('Euston') }.to raise_error('Not enough for a fare.')
     end
 
     it 'raises error if touched out while not in journey' do
-      expect { @oyster.touch_out }.to raise_error('Card already not in journey')
-    end
-
-    it 'checks if the card has enough balance for a fare' do
-      @oyster.deduct(1)
-      expect { @oyster.touch_in }.to raise_error('Not enough for a fare.')
+      expect { @oyster.touch_out }.to raise_error('You already touched out.')
     end
 
     it 'deducts minimum fare on touch out' do
       @oyster.deduct(1)
       expect(@oyster.display_balance).to eq 0
     end
-
-    it 'raises error if trying to touch in with insufficient funds' do
-      allow(@oyster).to receive(:enough_money?).and_return(false)
-      expect { @oyster.touch_in }.to raise_error('Not enough for a fare.')
-    end
   end
+  end
+  
 end
