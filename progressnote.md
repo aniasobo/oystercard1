@@ -29,7 +29,7 @@ _pair coding: Anna & Aleks_
 - [x] Charging for the journey  
 
 ### Record the journeys
-- [ ] Saving the entry station  
+- [x] Saving the entry station  
 - [ ] Adding journey history  
 - [ ] Creating the station class  
 

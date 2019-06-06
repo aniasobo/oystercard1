@@ -1,13 +1,18 @@
 class OysterCard
-
-  attr_reader :balance 
-  attr_accessor :station
+  attr_reader :balance
+  attr_reader :history
+  attr_accessor :entry_station
+  attr_accessor :exit_station
+  attr_accessor :journey
   MAX_VALUE = 90
   MINIMIM_FARE = 1
 
-  def initialize(balance = 10, station = nil)
+  def initialize(balance = 10)
     @balance = balance
-    @station = station
+    @entry_station = nil
+    @exit_station = nil
+    @journey = {} #{started: @entry_station, ended: @exit_station }
+    @history = []
   end
 
   def top_up(num)
@@ -21,27 +26,37 @@ class OysterCard
   end
 
   def touch_in(station)
-    raise "Card already in use" if in_journey?
+    raise 'Card already in use' if in_journey?
     raise 'Not enough for a fare.' unless enough_money?
 
-    @station = station
+    @entry_station = station
+  end
+
+  def touch_out(station)
+    raise 'You already touched out.' unless in_journey?
+
+    deduct(MINIMIM_FARE)
+    @exit_station = station
+    save_journey
+  end
+
+  def save_journey
+    @journey[:started] = @entry_station
+    @journey[:ended] = @exit_station
+    @history << @journey
+    @journey = {}
+    @entry_station = nil
+    @exit_station = nil
   end
 
   def display_balance
     @balance
   end
 
-  def touch_out
-    raise "You already touched out." unless in_journey?
-
-    self.deduct(MINIMIM_FARE)
-    @station = nil
-  end
-
   private
 
   def in_journey?
-    @station != nil
+    @entry_station != nil
   end
 
   def enough_money?
