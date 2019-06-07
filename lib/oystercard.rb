@@ -11,7 +11,7 @@ class OysterCard
     @balance = balance
     @entry_station = nil
     @exit_station = nil
-    @journey = {} #{started: @entry_station, ended: @exit_station }
+    @journey = {}
     @history = []
   end
 

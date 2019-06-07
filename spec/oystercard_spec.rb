@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'oystercard'
 
 describe OysterCard do
@@ -25,12 +26,9 @@ describe OysterCard do
   end
 
   describe '#touch_in and #touch_out' do
-    context 'brand new oyster card' do
-    let(:oyster) { OysterCard.new }
-
-      it 'can be assigned a station on touch in' do
-        expect(oyster.touch_in('Camden')).to eq 'Camden'
-      end
+    it 'can be assigned a station on touch in' do
+      oyster = OysterCard.new
+      expect(oyster.touch_in('Camden')).to eq 'Camden'
     end
 
     context 'testing station assignment' do
