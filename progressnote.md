@@ -31,7 +31,7 @@ _pair coding: Anna & Aleks_
 ### Record the journeys
 - [x] Saving the entry station  
 - [x] Adding journey history  
-- [ ] Creating the station class  
+- [x] Creating the station class  
 
 ### Refactor to extract Journey class
 - [ ] Handling a journey without a touch out

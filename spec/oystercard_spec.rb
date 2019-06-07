@@ -1,10 +1,11 @@
 require 'spec_helper'
 require 'oystercard'
+require 'journey'
 
 describe OysterCard do
   it 'is initilized with a default balance, nil station and empty history' do
     oyster = OysterCard.new
-    expect(oyster).to have_attributes(:balance => 10, :entry_station => nil, :history => [], :exit_station => nil, :journey => {})
+    expect(oyster).to have_attributes(:balance => 10, :history => [], :journey => nil)
   end
 
   describe '#top_up' do
@@ -28,7 +29,7 @@ describe OysterCard do
   describe '#touch_in and #touch_out' do
     it 'can be assigned a station on touch in' do
       oyster = OysterCard.new
-      expect(oyster.touch_in('Camden')).to eq 'Camden'
+      expect(oyster.touch_in('station')).to eq nil
     end
 
     context 'testing station assignment' do
